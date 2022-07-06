@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myTrakr</title>
+    <title>WigoBank</title>
     <!-- jQuery file -->
     <script src="./js/vendors/jquery.js"></script>
     <!-- Bootstrap files -->
@@ -19,47 +19,71 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    myTrakr
+    <h1>Wigo Bank</h1>
     <main>
-      <form action="">
-        New Account:
-        <input type="text" />
-        <button>Add new account</button>
+      <h4>New Account</h4>
+      <div class="divNewAccount" id="divNewAccount"> 
+        <form id= "frmAccount" action="">
+          <input  type="text" id="AccountName"/>
+          <button id="btnNewAccount">Add new account</button>
+        </form>
+      </div>
+      
+      <h4>New Transaction</h4>
+      <div>
+      <form id="frmTransaction" action="">
+        <div class="divTransaction" id="divTransaction">
+          <div>Deposit <input type="radio" id= "Deposit"  name="rTransaction" value="Deposit"  /></div>
+          <div>Withdraw <input type="radio" id= "Withdraw"  name="rTransaction" value="Withdraw" /></div>
+          <div>Transfer<input type="radio" id= "Transfer"  name="rTransaction" value="Transfer"  /></div>
+        </div>
+
+        <div class="divAccount" id="divAccount"> 
+          <label>Account:</label>
+          <select id="Accounts"></select>
+        </div>
+        
+        <div class="divTransfer" id="divTransfer"> 
+          <label>From:</label>
+          <select id="From"></select>
+
+          <label>To:</label>
+          <select id="To"></select>
+        </div>
+
+        <div class="divCategory" id="divCategory"> 
+          <label>Category:</label>
+          <select id="Categories">
+            <option value=""></option>
+            <option value="new">Add new...</option>
+          </select>
+          
+          <input type="text"  id="CategoryName"/>
+          <button id="btnNewCategory">Add new category</button>
+        </div>
+
+        <div class="divAmount" id="divAmount"> 
+          <p><label>Description</label>
+          <input type="text" /></p>
+          <p><label>Amount:</label>
+          <input type="number" />
+          </p>
+          <p><button  id="btnAddTransaction">Add transaction</button></p>
+        </div>
+        
       </form>
-      <form action="">
-        New Transaction: Deposit
-        <input type="radio" />
-        Withdraw
-        <input type="radio" />
-        Transfer
-        <input type="radio" />
-        Account:
-        <select></select>
-
-        From:
-        <select></select>
-
-        To:
-        <select></select>
-        Category:
-        <select></select>
-        <input type="text" />
-        <button type="button">Add new category</button>
-
-        Description
-        <input type="text" />
-
-        Amount:
-        <input type="number" />
-
-        <button>Add transaction</button>
-      </form>
-
-      Account summary
+      </div>
+      
+      <div>
+      <h2>Account Summary</h2>
       <ul></ul>
-      Filter by account:
-      <select></select>
-      <table>
+
+      <label>Filter by account:</label>
+      <select id="AccountList">
+
+      </select>
+
+      <table id="AccountTable">
         <tr>
           <th>Id</th>
           <th>Username</th>
@@ -71,11 +95,14 @@
           <th>To</th>
         </tr>
       </table>
+    </div>
+
     </main>
-    <script src="./js/helpers/Account.js"></script>
-    <script src="./js/helpers/Category.js"></script>
-    <script src="./js/helpers/Common.js"></script>
-    <script src="./js/helpers/Transaction.js"></script>
-    <script src="./js/index.js"></script>
+
+    <script type="module" src="./js/helpers/Account.js"></script>
+    <script type="module" src="./js/helpers/Category.js"></script>
+    <script type="module"src="./js/helpers/Common.js"></script>
+    <script type="module" src="./js/helpers/Transaction.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

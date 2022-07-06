@@ -21,3 +21,39 @@ class Deposit extends Transaction {
     return this.amount;
   }
 }
+
+
+class Transfer extends Transaction {
+  get value() {
+    return this.amount;
+  }
+}
+
+
+
+// ajax - { method, url, dataType }.done(cb(data));
+//get - reading data
+$.ajax({
+  method: 'get',
+  url: 'http://localhost:3000/transactions',
+  dataType: 'json',
+}).done((data) => {
+  console.log('data ajax get', data);
+});
+
+
+//post - sending data
+$.ajax({
+  method: 'post',
+  newTransaction:{
+    accountId:     "", // account ID for Deposits or Withdraws
+    accountIdFrom: "", // sender ID if type = 'Transfer', otherwise null
+    accountIdTo:   "" // receiver ID if type = 'Transfer', otherwise null
+                     // all info from form
+  },
+  url: 'http://localhost:3000/transaction',
+  dataType: 'json',
+}).done((data) => {
+  console.log('data ajax post', data);
+
+});
