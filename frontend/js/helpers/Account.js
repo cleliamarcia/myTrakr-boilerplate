@@ -55,8 +55,29 @@ export function filterAccount(id){
 
 export function  getAccounts(){
 
+  $('.AccountCombo').empty();    // clear Account combo
+  $('select#AccountsFilter').prepend(`<option value="-1">Default - All</option>`)
+  $('select#Accounts').prepend(`<option value="0"></option>`)
+  $('select#From').prepend(`<option value="0"></option>`)
+  $('select#To').prepend(`<option value="0"></option>`)
+  
   $('ul#listSummary').empty();    // clear Account Summary List
 
+    // clear table
+    $('table#tableTransaction').empty();
+    $('table#tableTransaction').append(`
+     <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Transaction Type</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+  `);
+  
   //get - reading data
   $.ajax({
     method: 'get',
